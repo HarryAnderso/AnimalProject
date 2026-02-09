@@ -16,29 +16,20 @@ namespace NodeCanvas.Tasks.Actions {
 
 
         protected override string OnInit() {
-
+            //gets the blackboard of the agent and stores it in a variable for later use
             agentBlackBoard = agent.GetComponent<Blackboard>();
 
             return null;
 		}
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
+
 		protected override void OnExecute() {
-			//Vector3 curpos = agent.transform.position;
-			//float f = agentBlackBoard.GetValue<float>("wanderRadius");
+            //defines a random point for the deer to wander to within the defined radius once called for the first time
             targ = new Vector3(Random.Range(agent.transform.position.x-wanderRadius, agent.transform.position.x + wanderRadius), 0, Random.Range(agent.transform.position.y - wanderRadius, agent.transform.position.y + wanderRadius));
-
-
-
-
-            //EndAction(true);
 		}
 
-		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-
+            //each frame, the deer will move towards the defined point and once it is close enough, the action will end and return true
             Vector3 movedir = targ - agent.transform.position;
             agent.transform.position += movedir.normalized * Time.deltaTime * 3;
 
