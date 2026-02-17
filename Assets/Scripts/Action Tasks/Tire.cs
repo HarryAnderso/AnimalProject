@@ -55,10 +55,11 @@ namespace NodeCanvas.Tasks.Actions {
             {
                 //EndAction(true);
             }
+            EndAction(true);
         }
 
-		//Called when the task is disabled.
-		protected override void OnStop() {
+        //Called when the task is disabled.
+        protected override void OnStop() {
 			
 		}
 

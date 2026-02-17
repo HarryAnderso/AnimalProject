@@ -15,6 +15,15 @@ namespace NodeCanvas.Tasks.Actions {
 		public Vector3 targ;
 
 
+        public float TireRate = 1f;
+        public float HungerRate = 1f;
+        public float ThirstRate = 1f;
+
+        public BBParameter<float> sleep;
+        public BBParameter<float> food;
+        public BBParameter<float> water;
+
+
         protected override string OnInit() {
             //gets the blackboard of the agent and stores it in a variable for later use
             agentBlackBoard = agent.GetComponent<Blackboard>();
@@ -33,8 +42,38 @@ namespace NodeCanvas.Tasks.Actions {
             Vector3 movedir = targ - agent.transform.position;
             agent.transform.position += movedir.normalized * Time.deltaTime * 3;
 
-            if (Vector3.Distance(agent.transform.position, targ) < 0.5f)
+
+            if (sleep.value > 10)
             {
+                sleep.value -= TireRate * Time.deltaTime;
+            }
+            else
+            {
+                //EndAction(true);
+            }
+
+            if (food.value > 10)
+            {
+                food.value -= HungerRate * Time.deltaTime;
+            }
+            else
+            {
+                //EndAction(true);
+            }
+
+            if (water.value > 10)
+            {
+                water.value -= ThirstRate * Time.deltaTime;
+            }
+            else
+            {
+                //EndAction(true);
+            }
+
+
+            if (Vector3.Distance(agent.transform.position, targ) < 0.8f)
+            {
+                targ = new Vector3(Random.Range(agent.transform.position.x - wanderRadius, agent.transform.position.x + wanderRadius), 0, Random.Range(agent.transform.position.y - wanderRadius, agent.transform.position.y + wanderRadius));
                 EndAction(true);
             }
         }

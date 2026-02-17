@@ -15,8 +15,13 @@ namespace NodeCanvas.Tasks.Actions {
 		public Vector3 destination;
 
         protected override string OnInit() {
-			return null;
-		}
+            navmeshAgent = agent.GetComponent<NavMeshAgent>();
+
+            if (navmeshAgent == null)
+                return $"{agent.name} - NavigationTask: Unable to get NavMesh Agent Reference!";
+            else
+                return null;
+        }
 
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
@@ -31,6 +36,11 @@ namespace NodeCanvas.Tasks.Actions {
 			destination = pondlocation.position;
 
             navmeshAgent.SetDestination(destination);
+
+			if(Vector3.Distance(agent.transform.position, destination) < 2.5f)
+			{
+				EndAction(true);
+            }
 
 
         }
