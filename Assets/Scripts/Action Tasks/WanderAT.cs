@@ -1,6 +1,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace NodeCanvas.Tasks.Actions {
 
@@ -13,7 +14,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public float wanderRadius = 5f;
         public BBParameter<Transform> deer;
 		public Vector3 targ;
-
+        private NavMeshAgent navmeshAgent;
 
         public float TireRate = 1f;
         public float HungerRate = 1f;
@@ -28,8 +29,15 @@ namespace NodeCanvas.Tasks.Actions {
             //gets the blackboard of the agent and stores it in a variable for later use
             agentBlackBoard = agent.GetComponent<Blackboard>();
 
-            return null;
-		}
+            //return null;
+
+            navmeshAgent = agent.GetComponent<NavMeshAgent>();
+
+            if (navmeshAgent == null)
+                return $"{agent.name} - NavigationTask: Unable to get NavMesh Agent Reference!";
+            else
+                return null;
+        }
 
 
 		protected override void OnExecute() {
@@ -39,8 +47,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 		protected override void OnUpdate() {
             //each frame, the deer will move towards the defined point and once it is close enough, the action will end and return true
-            Vector3 movedir = targ - agent.transform.position;
-            agent.transform.position += movedir.normalized * Time.deltaTime * 3;
+            //Vector3 movedir = targ - agent.transform.position;
+            //agent.transform.position += movedir.normalized * Time.deltaTime * 3;
+            navmeshAgent.SetDestination(targ);
 
 
             if (sleep.value > 10)

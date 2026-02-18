@@ -13,17 +13,26 @@ namespace NodeCanvas.Tasks.Actions {
 		public float Patchsize = 5;
 		public float Foodpressure = 0f;
 
+        public AudioSource audso;
+        public BBParameter<AudioClip> EatSound;
+
         public BBParameter<float> food;
         protected override string OnInit() {
-			return null;
-		}
+            audso = agent.GetComponent<AudioSource>();
+
+            if (audso == null)
+                return $"{agent.name} - Bleat Action Task: Unable to get a Audio Source";
+            else
+                return null;
+        }
 
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			//EndAction(true);
-		}
+            //EndAction(true);
+            audso.PlayOneShot(EatSound.value);
+        }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
