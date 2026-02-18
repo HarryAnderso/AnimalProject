@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 29442409}
   - component: {fileID: 29442408}
   - component: {fileID: 29442407}
+  - component: {fileID: 29442412}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -242,6 +243,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &29442412
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29442406}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &272627080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,6 +1720,7 @@ GameObject:
   - component: {fileID: 1164206515}
   - component: {fileID: 1164206514}
   - component: {fileID: 1164206513}
+  - component: {fileID: 1164206517}
   m_Layer: 0
   m_Name: Rock (4)
   m_TagString: Untagged
@@ -1793,6 +1817,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1164206517
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164206512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1200135546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2018,7 @@ GameObject:
   - component: {fileID: 1671189944}
   - component: {fileID: 1671189943}
   - component: {fileID: 1671189942}
+  - component: {fileID: 1671189946}
   m_Layer: 0
   m_Name: Rock (1)
   m_TagString: Untagged
@@ -2074,6 +2115,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1671189946
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671189941}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1778280722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2736,7 @@ GameObject:
   - component: {fileID: 1902423309}
   - component: {fileID: 1902423308}
   - component: {fileID: 1902423307}
+  - component: {fileID: 1902423311}
   m_Layer: 0
   m_Name: Rock (3)
   m_TagString: Untagged
@@ -2775,6 +2833,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1902423311
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902423306}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2098180860
 GameObject:
   m_ObjectHideFlags: 0
